@@ -1,7 +1,8 @@
-<?php
-  require_once("includes\\header.php");
+<?php 
+    session_start();
+    require_once("includes\header.php");
 ?>
-
+    
     <!-- Navbar -->
     <?php require_once("includes\\navbar.php"); ?>
 
