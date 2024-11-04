@@ -6,19 +6,17 @@ $password = $_POST["password"];
 session_start();
 
 
+include('../config/DatabaseConnect.php');
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
-        //connect to database
-        $host = "localhost";
-        $database = "ecommerce";
-        $dbusername = "root";
-        $dbpassword = "";
+      
+//db connection
 
-        $dsn = "mysql: host=$host;dbname=$database;";
+    $db = new DatabaseConnect();
+    $conn = $db ->connectDB();
+       
         try {
-            $conn = new PDO($dsn, $dbusername, $dbpassword);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+           
             
             $stmt = $conn->prepare('SELECT * FROM `users` WHERE username = :p_username');
             $stmt->bindParam(':p_username',$username);
@@ -27,8 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if($users){
           
                 if(password_verify($password,$users[0]["password"])){
-                //if($password == $users[0]["password"]){
-                    echo "login successful";
+                    header ("location: /index.php");
                     $_SESSION["fullname"] = $users[0]["fullname"];
                 } else {
                     echo "password did not match";

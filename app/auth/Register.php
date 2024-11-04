@@ -2,7 +2,7 @@
 
 session_start();
 //received user input
-include('../config/DatabaseaConnect.php');
+include('../config/DatabaseConnect.php');
 
    $fullname        = htmlspecialchars($_POST["fullName"]);
    $username        = htmlspecialchars($_POST["username"]);
