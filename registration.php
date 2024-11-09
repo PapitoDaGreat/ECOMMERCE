@@ -2,7 +2,7 @@
 <?php 
 
     session_start();
-    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Diretories.php");
     require_once(ROOT_DIR."includes\header.php");
 
     if(isset($_SESSION["error"])){
