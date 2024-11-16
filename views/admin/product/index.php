@@ -63,7 +63,7 @@
         
         <?php
     foreach($productList as $product){
-       include(ROOT_DIR.'views/components/product-card.php');
+       include(ROOT_DIR.'views/components/product-cart.php');
     }
     ?>
             <!-- Add more product cards dynamically based on your backend data -->
